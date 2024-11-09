@@ -1,0 +1,49 @@
+<div class="p-5 shadow-lg">
+  <div class="flex items-center">
+    <div class="w-[5rem] h-[rem] lg:w-[9rem] lg:h-[9rem]">
+      <img
+        class="w-full h-full object-cover object-top"
+        src="https://product.hstatic.net/1000333436/product/ntt07183_02ced64035ce4654a134ede4501dd27b_grande.jpg"
+        alt=""
+      />
+    </div>
+    <div class="ml-5 space-y-1">
+      <p class="font-semibold">Men Solid Cotton Blend Straight Kurta</p>
+      <p class="text-gray-500">Size: M, Black</p>
+      <p class="text-gray-500 mt-2">Seller:KSH Quang</p>
+      <div class="flex space-x-2 items-center pt-3">
+        <p class="text-gray-500 line-through">$999</p>
+        <p class="font-semibold text-lg">$333</p>
+        <p class="text-green-600 font-semibold">67% off</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showButton" class="flex items-center lg:space-x-10 pt-4 justify-between">
+  <div class="flex items-center space-x-2">
+    <div class="example-button-container">
+      <button
+        mat-mini-fab
+        color="accent"
+        (click)="updateCartItem(-1)"
+        [disabled]="true"
+      >
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
+    <span class="py-1 px-7 border border-gray-800 rounded-sm"> 1 </span>
+    <div class="example-button-container">
+      <button
+        mat-mini-fab
+        color="accent"
+        (click)="updateCartItem(1)"
+        [disabled]="false"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <button (click)="removeCartItem()" color="accent" mat-stroked-button>
+    Remove
+  </button>
+</div>

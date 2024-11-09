@@ -1,0 +1,87 @@
+<div
+  class="fixed top-0 z-50 right-0 left-0 bg-[#69f0ae] text-gray-800 px-6 lg:px-20"
+>
+  <div class="h-16 flex items-center justify-between">
+    <div class="flex items-center">
+      <div class="mr-5">
+        <img
+          class="w-8 h-8 rounded-full"
+          src="https://cdn.pixabay.com/photo/2014/11/29/19/33/bald-eagle-550804_640.jpg"
+          alt="Shop With QuangQR"
+        />
+      </div>
+      <div class="flex space-x-6">
+        <a
+          routerLink="/"
+          href="#"
+          class="text-gray-800 hover:text-gray-600 font-semibold"
+        >
+          Shop With QuangQR
+        </a>
+        <button
+          (click)="openNavbarContent('men')"
+          class="open-button text-gray-800 hover:text-gray-600 font-semibold"
+        >
+          Men
+        </button>
+        <button
+          (click)="openNavbarContent('women')"
+          class="open-button text-gray-800 hover:text-gray-600 font-semibold"
+        >
+          Women
+        </button>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <button
+        (click)="navigateTo('cart')"
+        class="text-gray-800 hover:text-gray-600"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13l-4-8m0 0L3 3m0 0h18m-6 10a1 1 0 100 2 1 1 0 000-2zm-8 0a1 1 0 100 2 1 1 0 000-2z"
+          ></path>
+        </svg>
+      </button>
+      <button
+        (click)="handelOpenLoginModal()"
+        *ngIf="!userProfile"
+        class="bg-[#ff4081] text-white px-4 py-2 rounded-md hover:bg-[#f50057] transition duration-300"
+      >
+        Login
+      </button>
+      <div *ngIf="userProfile" class="relative flex items-center space-x-3">
+        <span class="font-bold text-lg">{{ userProfile.firstName }}</span>
+        <button
+          class="flex items-center space-x-1"
+          [matMenuTriggerFor]="profileMenu"
+        >
+          <img
+            class="w-8 h-8 rounded-full"
+            src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png"
+          />
+        </button>
+        <mat-menu #profileMenu="matMenu">
+          <button (click)="navigateTo('account/orders')" mat-menu-item>
+            Orders
+          </button>
+          <button mat-menu-item>Profile</button>
+          <button (click)="handleLogout()" mat-menu-item>Logout</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isNavbarContentOpen" class="modal-container">
+  <app-navbar-content [selectedSection]="currentSection" />
+</div>

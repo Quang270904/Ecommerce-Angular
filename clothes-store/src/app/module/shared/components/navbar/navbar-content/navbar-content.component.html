@@ -1,0 +1,37 @@
+<div class="w-full mt-10">
+  <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
+    <div class="flex justify-around">
+      <div
+        class="flex flex-col"
+        *ngFor="let item of category[selectedSection].sections"
+      >
+        <h1 class="text-center">{{ item.name }}</h1>
+        <button
+          mat-button
+          *ngFor="let section of item.items"
+          (click)="navigateToProduct(selectedSection, item.name, section.name)"
+        >
+          {{ section.name }}
+        </button>
+      </div>
+      <div class="hidden lg:block">
+        <div class="mb-5">
+          <img
+            class="w-[19rem] h-[20rem] object-cover object-top rounded-md"
+            src="https://cdn.pixabay.com/photo/2018/04/05/09/32/portrait-3292287_640.jpg"
+          />
+        </div>
+        <p class="text-gray-600">New Arrival</p>
+      </div>
+      <div class="hidden lg:block">
+        <div class="mb-5">
+          <img
+            class="w-[19rem] h-[20rem] object-cover object-top rounded-md"
+            src="https://cdn.pixabay.com/photo/2017/12/17/08/12/girl-3023831_640.jpg"
+          />
+        </div>
+        <p class="text-gray-600">New Arrival</p>
+      </div>
+    </div>
+  </div>
+</div>
